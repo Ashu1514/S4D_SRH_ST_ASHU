@@ -26,7 +26,7 @@ CLASS zcl_ashu_local_class IMPLEMENTATION.
 
     TRY.
         connection = NEW #( i_carrier_id = 'LH'
-            i_connection_id = '4133'
+            i_connection_id = '0400'
         ).
 
         APPEND connection to connections.
@@ -36,8 +36,19 @@ CLASS zcl_ashu_local_class IMPLEMENTATION.
     ENDTRY.
 
     TRY.
-        connection = NEW #( i_carrier_id = 'AI'
-            i_connection_id = '3243'
+        connection = NEW #( i_carrier_id = 'AA'
+            i_connection_id = '0018'
+        ).
+
+        APPEND connection to connections.
+
+        CATCH cx_abap_invalid_value.
+            out->write( 'Connection not found' ).
+    ENDTRY.
+
+    TRY.
+        connection = NEW #( i_carrier_id = 'XX'
+            i_connection_id = '0000'
         ).
 
         APPEND connection to connections.
